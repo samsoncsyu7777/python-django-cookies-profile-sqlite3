@@ -20,10 +20,10 @@ class Profiles(APIView):
             phone = body.get("phone")
             gender = body.get("gender")
             age = body.get("age")
-
+            
             # if we already know conversation id, we can save time and just add it to message and return
             if user_id:
-                user = User.objects.filter(id=user_id).first()                
+                user = User.objects.filter(id=user_id).first()         
                 profile = Profile(
                     address=address,
                     phone=phone,
@@ -31,7 +31,9 @@ class Profiles(APIView):
                     age=age,
                     user=user
                 )
+                
                 profile.save()
+
                 profile_json = profile.to_dict()
 
                 return JsonResponse({"profile": profile_json})

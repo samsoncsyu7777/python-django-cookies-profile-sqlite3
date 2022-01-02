@@ -109,13 +109,9 @@ WSGI_APPLICATION = "messenger_backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": env_vars.get(
-            "POSTGRES_ENGINE", "django.db.backends.postgresql_psycopg2"
+            "SQLITE3_ENGINE", "django.db.backends.sqlite3"
         ),
-        "NAME": env_vars.get("POSTGRES_DATABASE", "messenger"),
-        "USER": env_vars.get("POSTGRES_USER", "user"),
-        "PASSWORD": env_vars.get("POSTGRES_PASSWORD", "password"),
-        "HOST": env_vars.get("POSTGRES_HOST", "localhost"),
-        "PORT": env_vars.get("POSTGRES_PORT", 5432),
+        "NAME": env_vars.get("SQLITE3_DATABASE", "python"),
     }
 }
 
