@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "messenger_backend",
-    "socketio_app",
 ]
 
 MIDDLEWARE = [

@@ -5,7 +5,6 @@ from rest_framework.views import APIView
 
 
 class Profiles(APIView):
-    """expects {recipientId, text, conversationId } in body (conversationId will be null if no conversation exists yet)"""
 
     def post(self, request):
         try:
@@ -21,7 +20,6 @@ class Profiles(APIView):
             gender = body.get("gender")
             age = body.get("age")
             
-            # if we already know conversation id, we can save time and just add it to message and return
             if user_id:
                 user = User.objects.filter(id=user_id).first()         
                 profile = Profile(

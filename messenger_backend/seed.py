@@ -1,12 +1,10 @@
 from django.db import migrations
-from messenger_backend.models import User, Conversation, Message
+from messenger_backend.models import User
 
 
 def seed():
     print("db synced!")
     User.objects.all().delete()
-    Conversation.objects.all().delete()
-    Message.objects.all().delete()
 
     thomas = User(
         username="thomas",
@@ -26,26 +24,6 @@ def seed():
 
     santiago.save()
 
-    santiagoConvo = Conversation(user1=thomas, user2=santiago)
-    santiagoConvo.save()
-
-    messages = Message(
-        conversation=santiagoConvo, senderId=santiago.id, text="Where are you from?"
-    )
-    messages.save()
-
-    messages = Message(
-        conversation=santiagoConvo, senderId=thomas.id, text="I'm from New York"
-    )
-    messages.save()
-
-    messages = Message(
-        conversation=santiagoConvo,
-        senderId=santiago.id,
-        text="Share photo of your city, please",
-    )
-    messages.save()
-
     chiumbo = User(
         username="chiumbo",
         email="chiumbo@email.com",
@@ -54,14 +32,6 @@ def seed():
     )
     chiumbo.save()
 
-    chiumboConvo = Conversation(user1=chiumbo, user2=thomas)
-    chiumboConvo.save()
-
-    messages = Message(
-        conversation=chiumboConvo, senderId=chiumbo.id, text="Sure! What time?"
-    )
-    messages.save()
-
     hualing = User(
         username="hualing",
         email="hualing@email.com",
@@ -69,18 +39,6 @@ def seed():
         photoUrl="https://res.cloudinary.com/dmlvthmqr/image/upload/v1607914466/messenger/6c4faa7d65bc24221c3d369a8889928158daede4_vk5tyg.png",
     )
     hualing.save()
-
-    hualingConvo = Conversation(user1=hualing, user2=thomas)
-    hualingConvo.save()
-
-    for i in range(10):
-        messages = Message(
-            conversation=hualingConvo, senderId=hualing.id, text="a test message"
-        )
-        messages.save()
-
-    messages = Message(conversation=hualingConvo, senderId=hualing.id, text="😂 😂 😂")
-    messages.save()
 
     user = User(
         username="ashanti",

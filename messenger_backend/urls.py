@@ -24,8 +24,6 @@ urlpatterns = [
     path("auth/register", auth.Register.as_view()),
     path("auth/logout", auth.LogOut.as_view()),
     path("auth/user", auth.AuthenticatedUser.as_view()),
-    path("api/conversations", api.Conversations.as_view()),
-    path("api/messages", api.Messages.as_view()),
     path("api/users/<str:username>", api.Username.as_view()),
     path("api/profile", api.Profiles.as_view()),
 ]

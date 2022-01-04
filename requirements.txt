@@ -33,7 +33,6 @@ PyJWT==2.1.0
 pymongo==4.0.1
 python-dotenv==0.18.0
 python-engineio==4.2.0
-python-socketio==5.3.0
 pytz==2021.1
 PyYAML==5.4.1
 regex==2021.7.5
